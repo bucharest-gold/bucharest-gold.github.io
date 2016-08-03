@@ -1,6 +1,24 @@
 {
-  "site": {
-    "title": "WildFly Swarm",
-    "url": "https://wildfly-swarm.io"
-  }
+  "people": [
+    {
+      "name": "Lance Ball",
+      "email": "lball@redhat.com",
+      "github": "lance"
+    },
+    {
+      "name": "Jay Balunas",
+      "email": "jbalunas@redhat.com",
+      "github": "balunasj"
+    },
+    {
+      "name": "Helio Frota",
+      "email": "hfrota@redhat.com",
+      "github": "helio-frota"
+    },
+    {
+      "name": "Luke Holmquist",
+      "email": "lholmquist@redhat.com",
+      "icon": "lholmquist"
+    }
+  ]
 }

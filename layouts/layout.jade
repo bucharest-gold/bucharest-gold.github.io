@@ -9,11 +9,11 @@ html
     meta(name='description' content='Bucharest Gold R&P')
 
     block title
-      title= title ? title + " | " + site.title : site.title
+      title Bucharest Gold
 
     block styles
       link(rel='stylesheet' media='screen' href='/lib/bootstrap/css/bootstrap.min.css')
-      link(rel='stylesheet' media='screen' href='/lib/bootstrap/css/scrolling-nav.css')
+      link(rel='stylesheet' media='screen' href='/css/scrolling-nav.css')
       link(rel='stylesheet' media='screen' href='/css/site.css')
 
   body(id='page-top' data-spy='scroll' data-target='.navbar-fixed-top')
@@ -34,8 +34,6 @@ html
               a.page-scroll(href='#projects') Projects
             li
               a.page-scroll(href='#people') People
-            li
-              a.page-scroll(href='#resources') Resources
 
     section#intro.intro-section
       .container
@@ -44,14 +42,14 @@ html
           p Here is some stuff about our group and what we are doing
 
     block main
-      div!= contents
+      != contents
 
     block footer
       .container
         .footer
           .col-sm-6
             p(class='text-center')
-              &copy; Copyright 2016 <a href="http://redhat.com">Red Hat, Inc.</a> | Bucharest Gold is Open Source Software
+               &copy; Copyright 2016 <a href="http://redhat.com">Red Hat, Inc.</a> | Bucharest Gold is Open Source Software
 
     block scripts
       if devMode

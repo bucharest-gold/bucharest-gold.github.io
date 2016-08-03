@@ -4,7 +4,7 @@ var metalsmith = require('metalsmith'),
     less = require('metalsmith-less'),
     jade = require('metalsmith-jade'),
     serve = require('metalsmith-serve'),
-    watch = require('metalsmith-watcher'),
+    watch = require('metalsmith-watch'),
     msIf = require('metalsmith-if'),
     moment = require('moment'),
     fs = require('fs');
@@ -22,12 +22,15 @@ build();
 
 function build() {
   var serveAndWatch = process.argv.length > 2 && process.argv[2] === 'serve',
-      metadata = JSON.parse(fs.readFileSync('./site.json', 'utf8'));
+      siteJson = JSON.parse(fs.readFileSync('./site.json', 'utf8'));
 
-  metadata.devMode = serveAndWatch;
+  siteJson.devMode = serveAndWatch;
+  console.log(siteJson);
 
-  metalsmith(__dirname)
-    .metadata(metadata)
+  const site = metalsmith(__dirname);
+  const metadata = site.metadata();
+  metadata['people'] = siteJson.people;
+  site
     .source('./src')
     .destination('./build')
 
@@ -54,7 +57,9 @@ function build() {
     })))
     .use(msIf(
       serveAndWatch,
-      watch()
+      watch({
+        livereload: true
+      })
     ))
 
     .build(function (err) {
